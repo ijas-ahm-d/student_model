@@ -74,26 +74,26 @@ class ListStudents extends StatelessWidget {
 
   void deleteStudentInfo(index, ctx) {
     showDialog(
-        context: ctx,
-        builder: ((ctx1) {
-          return AlertDialog(
-            title: const Text('Delete'),
-            content: const Text('Do You want to delete.?'),
-            actions: [
-              TextButton(
-                  onPressed: () {
-                    Provider.of<StudentProvider>(ctx1, listen: false)
-                        .deleteStudent(index, ctx1);
-                    // deleteStudent(index, ctx);
-                  },
-                  child: const Text('Yes')),
-              TextButton(
-                  onPressed: () {
-                    Navigator.pop(ctx1);
-                  },
-                  child: const Text('No')),
-            ],
-          );
-        }));
+      context: ctx,
+      builder: ((ctx1) {
+        return AlertDialog(
+          title: const Text('Delete'),
+          content: const Text('Do You want to delete.?'),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  Provider.of<StudentProvider>(ctx1, listen: false)
+                      .deleteStudent(index, ctx1);
+                },
+                child: const Text('Yes')),
+            TextButton(
+                onPressed: () {
+                  Navigator.pop(ctx1);
+                },
+                child: const Text('No')),
+          ],
+        );
+      }),
+    );
   }
 }

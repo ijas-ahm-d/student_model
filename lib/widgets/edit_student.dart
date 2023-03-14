@@ -5,7 +5,7 @@ import 'package:student/database/functions/data_base_function.dart';
 import '../database/data_model/student_model.dart';
 
 class EditStudent extends StatelessWidget {
-   EditStudent(
+  EditStudent(
       {super.key,
       required this.name,
       required this.age,
@@ -51,6 +51,7 @@ class EditStudent extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(10),
+                  //================= Name ====================\\
                   child: TextFormField(
                     controller: nameController,
                     validator: (value) {
@@ -69,6 +70,7 @@ class EditStudent extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
+                  //================= Age ====================\\
                   child: TextFormField(
                     keyboardType: TextInputType.number,
                     controller: ageController,
@@ -88,6 +90,7 @@ class EditStudent extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
+                  //================= Email ====================\\
                   child: TextFormField(
                     keyboardType: TextInputType.emailAddress,
                     controller: emailController,
@@ -107,6 +110,7 @@ class EditStudent extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
+                  //================= PhoneNumber ====================\\
                   child: TextFormField(
                     keyboardType: TextInputType.phone,
                     controller: phoneController,
@@ -128,20 +132,20 @@ class EditStudent extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                    onPressed: () {
-                      if (formValidateKey.currentState!.validate()) {
-                        final value = StudentModel(
-                            name: nameController.text,
-                            age: ageController.text,
-                            email: emailController.text,
-                            phonenumber: phoneController.text);
+                  onPressed: () {
+                    if (formValidateKey.currentState!.validate()) {
+                      final value = StudentModel(
+                          name: nameController.text,
+                          age: ageController.text,
+                          email: emailController.text,
+                          phonenumber: phoneController.text);
 
-                        Provider.of<StudentProvider>(context, listen: false)
-                            .editStudent(index, value, context);
-                        // editStudent(widget.index, value, context);
-                      }
-                    },
-                    child: const Text('Edit Student details'))
+                      Provider.of<StudentProvider>(context, listen: false)
+                          .editStudent(index, value, context);
+                    }
+                  },
+                  child: const Text('Edit Student details'),
+                )
               ],
             ),
           ],

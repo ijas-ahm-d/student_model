@@ -18,13 +18,17 @@ Future<void> addStudentButton(BuildContext context) async {
   final phoneNumber = phoneNumberController.text;
 
   final student = StudentModel(
-      name: name, age: age, email: email, phonenumber: phoneNumber);
+    name: name,
+    age: age,
+    email: email,
+    phonenumber: phoneNumber,
+  );
 
   Provider.of<StudentProvider>(
     context,
     listen: false,
   ).addStudent(student);
-  // addStudent(student);
+  //======== snackbar ======\\
   snackbar(context, 'Student added succesfully');
   nameController.clear();
   ageController.clear();
@@ -35,11 +39,13 @@ Future<void> addStudentButton(BuildContext context) async {
 }
 
 void snackbar(context, message) {
-  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-    behavior: SnackBarBehavior.floating,
-    backgroundColor: Colors.green,
-    margin: const EdgeInsets.all(10),
-    duration: const Duration(seconds: 3),
-    content: Text(message),
-  ));
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.green,
+      margin: const EdgeInsets.all(10),
+      duration: const Duration(seconds: 3),
+      content: Text(message),
+    ),
+  );
 }
